@@ -1,0 +1,87 @@
+.banner-card{
+    margin-top: 2vh;
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+    bottom: 1rem;
+}
+
+.banner-img{
+    height: 70vh;
+    width: 100%;
+}
+
+.banner-title{
+    position: absolute;
+    color: azure;
+    top: 45vh;
+    font-size: 50px;
+    left: 5vw;
+}
+
+.banner-subtitle{
+    position: absolute;
+    color: azure;
+    top: 55vh;
+    font-size: 20px;
+    left: 5vw;
+}
+
+.movie-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-card{
+    margin: 1rem;
+    width: 20vw;
+    position: relative;
+}
+
+.movie-button{
+    position: absolute;
+    top: 15vh;
+    left: 5vw;
+}
+
+.movie-title{
+    position : absolute;
+    top : 1rem;
+    left : 1rem;
+    color : white
+   }
+
+.movie-rating{
+    position: absolute;
+    display: flex;
+    margin: 5px;
+    background-color: green;
+    border-radius: 15%;
+    width: 3vw;
+    align-items: center;
+    justify-content: center;
+    top: 18vh;
+}
+
+ .rating{
+    font-size: large;
+    margin-top: auto;
+}
+
+.star{
+    margin-left: 3px;
+} 
+.nav-button{
+    height:auto;
+    width: auto;
+    margin: 0.7rem;
+}
+
+.genre-selector{
+    padding: 3rem;
+}
+
+.favourites-table{
+    padding: 3rem;
+}
