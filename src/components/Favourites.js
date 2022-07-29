@@ -58,6 +58,21 @@ export class Favourites extends Component {
 		});
 	};
 
+	handleDelete = (movieid) => {
+		let Data = JSON.parse(localStorage.getItem("movies") || "[]");
+		let tempData = [];
+
+		Data.map((obj) => {
+			if (obj.id != movieid) tempData.push(obj);
+		});
+
+		localStorage.setItem("movies", JSON.stringify(tempData));
+
+		this.setState({
+			movies: [...tempData],
+		});
+	};
+
 	sortPopularDesc = () => {
 		let temp = this.state.movies;
 		temp.sort(function (objA, objB) {
@@ -71,6 +86,24 @@ export class Favourites extends Component {
 		let temp = this.state.movies;
 		temp.sort(function (objA, objB) {
 			return objA.popularity - objB.popularity;
+		});
+
+		this.setState({ movies: [...temp] });
+	};
+
+	sortRatingDesc = () => {
+		let temp = this.state.movies;
+		temp.sort(function (objA, objB) {
+			return objB.vote_average - objA.vote_average;
+		});
+
+		this.setState({ movies: [...temp] });
+	};
+
+	sortRatingAsc = () => {
+		let temp = this.state.movies;
+		temp.sort(function (objA, objB) {
+			return objA.vote_average - objB.vote_average;
 		});
 
 		this.setState({ movies: [...temp] });
@@ -165,7 +198,6 @@ export class Favourites extends Component {
 							<input type="number" className="input-group-text col" />
 						</div>
 						<div className="row">
-							9
 							<table class="table">
 								<thead>
 									<tr>
@@ -184,8 +216,15 @@ export class Favourites extends Component {
 											></i>
 										</th>
 										<th scope="col">
-											<i class="fa-solid fa-sort-up"></i>Ratings
-											<i class="fa-solid fa-sort-down"></i>
+											<i
+												class="fa-solid fa-sort-up"
+												onClick={this.sortRatingDesc}
+											></i>
+											Ratings
+											<i
+												class="fa-solid fa-sort-down"
+												onClick={this.sortRatingAsc}
+											></i>
 										</th>
 									</tr>
 								</thead>
@@ -206,6 +245,7 @@ export class Favourites extends Component {
 												<button
 													type="button"
 													class="btn btn-danger"
+													onClick={() => this.handleDelete(obj.id)}
 												>
 													Delete
 												</button>
